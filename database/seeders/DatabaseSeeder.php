@@ -15,14 +15,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Product::factory()->create(30);
-        Category::factory()->create(10);
+        Product::factory()->count(20)->create();
+        Category::factory()->count(5)->create();
 
         $categories = Category::all();
 
         Product::all()->each(function($product) use ($categories) {
 
-            $product->categories()->attach($categories->random(2)->pluck('id')->get());
+            $product->categories()->attach($categories->random(2)->pluck('id')->toArray());
         });
     }
 }
