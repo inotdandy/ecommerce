@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function purchase(){
+    public function purchase(Request $request){
 
         //make purchase
     }
